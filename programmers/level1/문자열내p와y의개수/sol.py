@@ -1,0 +1,18 @@
+def solution(s):
+    answer = True
+    p = 0
+    y = 0
+    for i in s:
+        if i == 'p' or i == 'P':
+            p += 1
+        elif i == 'y' or i == 'Y':
+            y += 1
+    if p != y:
+        answer = False
+
+    return answer
+
+print(solution("Pyy"))
+
+# 다른 풀이
+# s.lower().count('p') 하는 방법
