@@ -1,24 +1,19 @@
 def solution(babbling):
     # 1
-    mlist1 = ["aya", "ye", "woo", "ma"]
-
-    # 2
-    mlist2 = []
-    for i in mlist1:
-        for j in mlist1:
-            if i != j:
-                mlist2.append(i+j)
-                for k in mlist1:
-                    if j != k:
-                        mlist2.append(i+j+k)
-                        for l in mlist1:
-                            if k != l:
-                                mlist2.append(i+j+k+l)
+    mlist = ["aya", "ye", "woo", "ma"]
                                 
     answer = 0
     for i in babbling:
-        if i in mlist1 or i in mlist2:
+        for j in mlist:
+            if j * 2 not in i:
+                i = i.replace(j, str(mlist.index(j)))
+        
+        try :
+            int(i)
             answer += 1
+        except :
+            pass
+
     return answer
 
 print(solution(["ayaye", "uuu", "yeye", "yemawoo", "ayaayaa"]))
