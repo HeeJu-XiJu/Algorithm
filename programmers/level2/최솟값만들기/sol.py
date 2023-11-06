@@ -15,7 +15,7 @@
 def solution(A,B):
     A = sorted(A) 
     B = sorted(B)[::-1]
-    answer = sum(A*B)
+    answer= sum(A[i] * B[i] for i in range(len(A)))
     return answer
 
 print(solution([1, 4, 2], [5, 4, 4]))
