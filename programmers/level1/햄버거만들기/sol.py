@@ -6,17 +6,32 @@
 
 
 def solution(ingredient):
-    num = 0
     answer = 0
-    while num < len(ingredient)-3:
-        if ingredient[num] == 1 and ingredient[num+1] == 2 and ingredient[num+2] == 3 and ingredient[num+3] == 1:
-            ingredient.pop(num)
-            ingredient.pop(num)
-            ingredient.pop(num)
-            ingredient.pop(num)
-            answer += 1
-            num = 0
-        num += 1
+    stack = []
+    for i in ingredient:
+        stack.append(i)
+        if len(stack) >= 4:
+            if stack[len(stack)-4:] == [1, 2, 3, 1]:
+                stack.pop()
+                stack.pop()
+                stack.pop()
+                stack.pop()
+                answer += 1
+        
     return answer
+
+
+# def solution(ingredient):
+#     stack = ''
+#     answer = 0
+#     for i in ingredient:
+#         stack += str(i)
+        
+#         if len(stack) >= 4:
+#             if stack[len(stack)-4:] == '1231':
+#                 stack = stack[:len(stack)-4]
+#                 answer += 1
+    
+#     return answer
 
 print(solution([2, 1, 1, 2, 3, 1, 2, 3, 1]))
