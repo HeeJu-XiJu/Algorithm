@@ -1,26 +1,10 @@
 def solution(lines):
-    answer = []
-    realanswer = 0
-
-    # 라인 전부를 비교(겹치는지)
-    for i in range(len(lines)-1):
-        for j in range(i+1, len(lines)):
-            start1 = lines[i][0]
-            end1 = lines[i][1]
-            start2 = lines[j][0]
-            end2 = lines[j][1]
-            if end1 > start2:
-                answer.append([max(start1, start2), min(end1, end2)])
-
-    # 겹치는 부분들 경우의 수
-    if len(answer) >= 2:
-        for i in answer:
-            realanswer += abs(i[1] - i[0])
-    elif len(answer) == 1:
-        realanswer += answer[0][1] - answer[0][0]
-    else:
-        realanswer = 0
+    set1 = set(range(lines[0][0], lines[0][1]))
+    set2 = set(range(lines[1][0], lines[1][1]))
+    set3 = set(range(lines[2][0], lines[2][1]))
     
-    return realanswer
+    answerset = set1 & set2 | set1 & set3 | set2 & set3
 
-print(solution([[0, 5], [3, 9], [1, 10]]))
+    return len(answerset)
+
+print(solution([[4, 7], [4, 5], [6, 7]]))
