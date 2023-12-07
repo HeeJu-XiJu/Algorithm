@@ -16,24 +16,24 @@
 #     return answer
 
 
-# from collections import deque
+from collections import deque
 
-# def solution(prices):
-#     answer = []
-#     prices = deque(prices)
+def solution(prices):
+    answer = []
+    prices = deque(prices)
 
-#     while len(prices) > 0:
-#         price = prices.popleft()
-#         second = len(prices)
-#         for p in prices:
-#             if price > p:
-#                 second = prices.index(p)+1
-#                 break
-#         answer.append(second)
+    while len(prices) > 0:
+        price = prices.popleft()
+        second = len(prices)
+        for p in prices:
+            if price > p:
+                second = prices.index(p)+1
+                break
+        answer.append(second)
             
-#     return answer
+    return answer
 
-# print(solution([1, 2, 3, 2, 3]))
+print(solution([1, 2, 3, 2, 3]))
 
 
 
