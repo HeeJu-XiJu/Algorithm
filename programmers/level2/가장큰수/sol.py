@@ -51,7 +51,7 @@ def solution(numbers):
 print(solution([3, 30, 34, 5, 9]))
 
 
-# 다른 풀이2
+# 다른 풀이 2
 import functools
 
 def comparator(a,b):
@@ -64,3 +64,13 @@ def solution(numbers):
     n = sorted(n, key=functools.cmp_to_key(comparator),reverse=True)
     answer = str(int(''.join(n)))
     return answer
+
+
+# 다른 풀이 3
+def solution(numbers):
+    if any(num > 0 for num in numbers):
+        numbers.sort(key=lambda x: str(x)*4, reverse=True)
+        numbers = ''.join(list(map(str, numbers)))
+        return numbers
+    else:
+        return '0'
