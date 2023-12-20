@@ -13,7 +13,7 @@ def solution(numbers):
     for comp in comb_list:
         count = 0
         if comp >= 2:
-            # 에스토스테네스체
+            # 에라토스테네스 체
             for num in range(2, int(comp ** (1/2))+1):
                 if comp % num == 0:
                     count += 1
