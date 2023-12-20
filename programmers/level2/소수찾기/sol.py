@@ -20,7 +20,6 @@ def solution(numbers):
                     break
             if count == 0:
                 answer += 1
-        print(comp, count, answer)
     
     return answer
 
