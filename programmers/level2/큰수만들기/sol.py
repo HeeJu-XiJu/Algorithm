@@ -1,3 +1,3 @@
 def solution(number, k):
     answer = ''
-    return answer
+    return answer 
